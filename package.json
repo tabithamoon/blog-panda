@@ -1,5 +1,5 @@
 {
-	"name": "com.docker.devenvironments.code",
+	"name": "tabby.page",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -11,6 +11,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-cloudflare": "^2.3.3",
 		"@sveltejs/kit": "^1.20.4",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
