@@ -4,6 +4,7 @@
 
 <script>
     import github_logo from "$lib/assets/github-mark-white.svg";
+    export let data;
 </script>
 
 <title>Tabitha's Blog</title>
@@ -16,7 +17,7 @@
             <p class="text-lg lg:ml-2">I'm a red panda on the internet.</p>
         </div>
         <div class="flex min-h-full p-10">
-            <img class="object-contain max-h-96" src="https://files.tabby.page/testwah.jpg" alt="a cute red panda"/>
+            <img class="object-contain max-h-96" src="{data.item.link}" alt="a cute red panda"/>
         </div>
     </div>
     <div class="flex w-full h-min mb-8">
