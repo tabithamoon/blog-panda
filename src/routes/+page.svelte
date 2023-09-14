@@ -16,11 +16,12 @@
             <p class="text-orange-500">I'm Tabitha</p>
             <p class="text-lg lg:ml-2">I'm a red panda on the internet.</p>
         </div>
-        <div class="flex min-h-full p-10">
-            <img class="object-contain max-h-96" src="{data.item.link}" alt="a cute red panda"/>
+        <div class="flex flex-col min-h-full p-10">
+            <img class="object-contain max-h-96 mt-16" src="{data.item.link}" alt="a cute red panda"/>
+            <p class="text-sm pt-4 whitespace-pre-line italic">{data.item.author}</p>
         </div>
     </div>
-    <div class="flex w-full h-min mb-8">
+    <div class="flex w-full h-min mb-16 lg:mb-8">
         <i class="mi mi-arrow-down mx-auto"></i>
     </div>
 </div>
