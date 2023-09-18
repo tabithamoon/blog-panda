@@ -20,7 +20,7 @@
             <p class="text-lg lg:ml-2">I'm a red panda on the internet.</p>
         </div>
         <div class="flex flex-col min-h-full p-10">
-            <img class="object-contain max-h-80 xl:max-h-96 mt-16" src="{data.item.link}" alt="a cute red panda"/>
+            <img class="object-contain max-h-80 xl:max-h-96 lg:mt-16" src="{data.item.link}" alt="a cute red panda"/>
             <p class="text-sm pt-4 italic">{data.item.author}</p>
             <p class="text-sm italic">{data.item.source}</p>
         </div>
