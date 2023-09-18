@@ -18,7 +18,8 @@
         </div>
         <div class="flex flex-col min-h-full p-10">
             <img class="object-contain max-h-96 mt-16" src="{data.item.link}" alt="a cute red panda"/>
-            <p class="text-sm pt-4 whitespace-pre-line italic">{data.item.author}</p>
+            <p class="text-sm pt-4 italic">{data.item.author}</p>
+            <p class="text-sm italic">{data.item.source}</p>
         </div>
     </div>
     <div class="flex w-full h-min mb-16 lg:mb-8">
