@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         'cerulean': '#007BA7',
+        'truegray': '#202020',
+        'truedarkgray': '#161616'
       },
       fontFamily: {
         'bsod': ['Segoe UI', 'Open Sans', 'sans-serif']
