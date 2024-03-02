@@ -13,7 +13,7 @@
 
         {#each data.posts as {Title, Timestamp, Path, Slug}}
             <div class="mt-8 mx-auto">
-                <a class="text-2xl italic" href="posts/{Slug}">{Title}</a>
+                <a class="text-2xl italic" href="{Slug}">{Title}</a>
                 <p class="text-base text-gray-500">{Timestamp}</p>
             </div>
         {/each}
