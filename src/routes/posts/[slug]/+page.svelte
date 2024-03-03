@@ -13,7 +13,7 @@
         let key = (await fetch("https://comments.api.tabby.page/key")).text()
         let send = (await fetch(`https://comments.api.tabby.page/new/${data.post[0].Slug}`,
             {
-                method: post,
+                method: "POST",
                 body: JSON.stringify({
                     key: key,
                     author: commentAuthor,
