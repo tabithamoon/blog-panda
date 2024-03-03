@@ -14,7 +14,7 @@
 
 <div class="flex flex-col h-screen text-white">
     <div class="flex flex-col lg:flex-row m-auto">
-        <div class="flex flex-col m-auto text-center text-6xl pt-20 lg:text-left lg:text-8xl xl:text-9xl">
+        <div class="flex flex-col m-auto text-center text-6xl pt-20 lg:pt-0 lg:text-left lg:text-8xl xl:text-9xl">
             <p>Hi,</p>
             <p class="text-orange-500">I'm Tabitha</p>
             <p class="text-lg lg:ml-2">I'm a red panda on the internet.</p>
@@ -35,8 +35,7 @@
 </div>
 <div class="w-full text-center my-4">
     <p>I'm far from a frontend developer though.</p>
-    <p>This site is still under construction, so</p>
-    <p>the actual "blog" part of this "blog" page is not available.</p>
+    <p>Don't expect any fancy design or effects.</p>
 </div>
 <div class="flex w-full my-20">
     <a class="mx-auto" href="https://github.com/tabithamoon/blog">
