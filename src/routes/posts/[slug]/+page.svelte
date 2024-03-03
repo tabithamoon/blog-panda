@@ -5,13 +5,14 @@
     import SvelteMarkdown from 'svelte-markdown'
     export let data
 
-    let body = data.body
+    console.log(data.post[0])
 </script>
 
-<title>Tabitha's Blog - Post</title>
+<title>Tabitha's Blog - {data.post[0].Title}</title>
 
 <Header />
 
 <div class="mx-8 lg:mx-32 xl:mx-64 2xl:mx-96 mt-32 mb-48 leading-relaxed text-justify">
-    <SvelteMarkdown source={body} renderers={{ paragraph: Paragraph, heading: Heading }}/>
+    <p class="text-gray-500 italic">{data.post[0].Timestamp}</p>
+    <SvelteMarkdown source={data.body} renderers={{ paragraph: Paragraph, heading: Heading }}/>
 </div>

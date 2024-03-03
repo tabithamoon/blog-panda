@@ -5,5 +5,5 @@ export async function load({ fetch, params }) {
     const getBody = await fetch(post[0].Url);
     const body = await getBody.text();
 
-    return { body };
+    return { post, body };
 }
