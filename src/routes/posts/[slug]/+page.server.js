@@ -5,5 +5,8 @@ export async function load({ fetch, params }) {
     const getBody = await fetch(post[0].Url);
     const body = await getBody.text();
 
-    return { post, body };
+    const getComments = await fetch(`https://comments.api.tabby.page/get/${params.slug}`)
+    const comments = await getComments.json();
+
+    return { post, body, comments };
 }

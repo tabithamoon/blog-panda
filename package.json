@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"luxon": "^3.4.4",
 		"svelte-markdown": "^0.4.1"
 	}
 }
