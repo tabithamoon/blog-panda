@@ -35,8 +35,7 @@
 </div>
 <div class="w-full text-center my-4">
     <p>I'm far from a frontend developer though.</p>
-    <p>This site is still under construction, so</p>
-    <p>the actual "blog" part of this "blog" page is not available.</p>
+    <p>Don't expect any fancy design or effects.</p>
 </div>
 <div class="flex w-full my-20">
     <a class="mx-auto" href="https://github.com/tabithamoon/blog">
