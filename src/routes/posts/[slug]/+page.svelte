@@ -1,17 +1,44 @@
 <script>
-    import Paragraph from "../../../components/markdown/Paragraph.svelte";
-    import Heading from "../../../components/markdown/Heading.svelte";
     import Header from "../../../components/Header.svelte";
     import { invalidateAll } from '$app/navigation';
-    import SvelteMarkdown from 'svelte-markdown'
     import { DateTime } from 'luxon'
-    
+    import { marked } from 'marked';
+
     export let data
 
+    // Configuring markdown renderer
+    const renderer = {
+        heading(text, level) {
+            switch(level){
+                case 3:
+                    return `<h3 class="mt-4 text-xl">${text}</h3>`
+                case 2:
+                    return `<h2 class="mt-4 text-2xl">${text}</h2>`
+                case 1:
+                    return `<h1 class="mt-4 text-3xl">${text}</h1>`
+            }
+        },
+        
+        paragraph(text) {
+            return `<p class="mt-4">${text}</p>`
+        },
+
+        list(body, ordered, start) {
+            return `<ul class="mt-4">${body}</p>`
+        },
+
+        listitem(text, task, checked) {
+            return `<li class="ml-4 mt-1">• ${text}</li>`
+        }
+    }
+    marked.use({ renderer, gfm: true })
+
+    // Variables for comments section
     let commentAuthor = ''
     let commentBody = ''
     let sendStatus = ''
 
+    // Send comments function!
     async function sendComment() {
         sendStatus = 'Obtaining key...'
         let key = await fetch("https://comments.api.tabby.page/key")
@@ -74,7 +101,7 @@
 <!-- body of the post-->
 <div class="mx-8 lg:mx-32 xl:mx-64 2xl:mx-96 mt-32 mb-32 leading-relaxed text-justify">
     <p class="text-gray-500 italic">{data.post[0].Timestamp}</p>
-    <SvelteMarkdown source={data.body} renderers={{ paragraph: Paragraph, heading: Heading }}/>
+    {@html marked.parse(data.body)}
 </div>
 
 <!-- comments! -->
