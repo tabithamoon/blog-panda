@@ -13,14 +13,6 @@
     let sendStatus = ''
 
     async function sendComment() {
-        if (commentAuthor === '' || commentBody === '') {
-            sendStatus = 'One of the fields are empty.'
-
-            setTimeout(function () {
-                sendStatus = ''
-            }, 3000)
-        }
-
         sendStatus = 'Obtaining key...'
         let key = await fetch("https://comments.api.tabby.page/key")
 
@@ -119,6 +111,8 @@
         />
     </div>
     
+    <p class="mt-2 text-neutral-400 italic">Your IP address will be saved alongside your comment, for anti-spam purposes.</p>
+
     <div class="flex flex-row">
         <button on:click={sendComment}
             class = "w-32 mt-2 border border-neutral-600 bg-neutral-800">Send Comment</button>
