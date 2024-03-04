@@ -13,6 +13,14 @@
     let sendStatus = ''
 
     async function sendComment() {
+        if (commentAuthor === '' || commentBody === '') {
+            sendStatus = 'One of the fields are empty.'
+
+            setTimeout(function () {
+                sendStatus = ''
+            }, 3000)
+        }
+
         sendStatus = 'Obtaining key...'
         let key = await fetch("https://comments.api.tabby.page/key")
 
