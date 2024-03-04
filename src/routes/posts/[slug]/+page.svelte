@@ -2,16 +2,31 @@
     import Paragraph from "../../../components/markdown/Paragraph.svelte";
     import Heading from "../../../components/markdown/Heading.svelte";
     import Header from "../../../components/Header.svelte";
+    import { invalidateAll } from '$app/navigation';
     import SvelteMarkdown from 'svelte-markdown'
     import { DateTime } from 'luxon'
+    
     export let data
 
     let commentAuthor = ''
     let commentBody = ''
+    let sendStatus = ''
 
     async function sendComment() {
-        let key = (await fetch("https://comments.api.tabby.page/key")).text()
-        let send = (await fetch(`https://comments.api.tabby.page/new/${data.post[0].Slug}`,
+        sendStatus = 'Obtaining key...'
+        let key = await fetch("https://comments.api.tabby.page/key")
+
+        if(key.status == 429) {
+            sendStatus = '';
+            alert("You are trying to comment too fast. Slow down!");
+            return;
+        }
+
+        key = await key.text()
+
+        sendStatus = 'Sending comment...'
+
+        let send = await fetch(`https://comments.api.tabby.page/new/${data.post[0].Slug}`,
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -22,9 +37,33 @@
                 headers: {
                     "Content-Type": "text/plain"
                 }
-            })).text()
+            })
 
-        alert(send)
+        sendStatus = ''
+        
+        if(send.status === 200) {
+            sendStatus = `${await send.text()}`
+
+            commentAuthor = ''
+            commentBody = ''
+
+            invalidateAll()
+        } else {
+            switch(send.status) {
+                case 400:
+                    alert(`Something is wrong with your request: ${await send.text()}`)
+                    return;
+                case 401:
+                    alert(`The API determined you are not authorized. Try again soon.`);
+                    return;
+                case 429:
+                    alert(`The API determined you're spamming! Please... please stop.`)
+                    return;
+                default:
+                    alert(`Something went wrong! Here's the message from the backend: ${await send.text()}`)
+                    return;
+            }
+        }
     }
 </script>
 
@@ -72,6 +111,10 @@
         />
     </div>
     
-    <button on:click={sendComment}
-        class = "w-32 mt-2 border border-neutral-600 bg-neutral-800">Send Comment</button>
+    <div class="flex flex-row">
+        <button on:click={sendComment}
+            class = "w-32 mt-2 border border-neutral-600 bg-neutral-800">Send Comment</button>
+        <p class="text-md ml-2 mt-2">{sendStatus}</p>
+    </div>
+    
 </div>
