@@ -84,7 +84,7 @@
     {#each data.comments as {Author, Body, Timestamp}}
         <div class="flex flex-row mt-4">
             <div class="text-lg italic">{Author}</div>
-            <div class="text-sm text-gray-500 mt-auto ml-2">{
+            <div class="text-sm text-gray-500 my-auto ml-2">{
                     DateTime.fromISO(Timestamp, { zone: "UTC" }).toLocaleString()
                 }
             </div>
