@@ -1,4 +1,4 @@
-<div class="fixed top-0 w-screen h-16 bg-truedarkgray drop-shadow-xl">
+<div class="z-50 fixed top-0 w-screen h-16 bg-truedarkgray drop-shadow-xl">
     <div class="flex text-lg h-full">
         <div class="ml-8 lg:ml-32 my-auto">
             <a href="/">Home</a>
