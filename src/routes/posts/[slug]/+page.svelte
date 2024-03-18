@@ -29,6 +29,14 @@
 
         listitem(text, task, checked) {
             return `<li class="ml-4 mt-1">• ${text}</li>`
+        },
+
+        code(code, infostring, escaped) {
+            return `
+                <div class="mt-4 p-4 rounded-lg text-md bg-truedarkgray drop-shadow-xl overflow-x-auto">
+                    <p class="font-mono whitespace-pre">${code}</p>
+                </div>
+            `
         }
     }
     marked.use({ renderer, gfm: true })
